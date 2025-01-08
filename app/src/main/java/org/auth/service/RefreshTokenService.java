@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.yaml.snakeyaml.tokens.Token;
 
 import java.time.Instant;
+import java.util.Optional;
 import java.util.UUID;
 
 public class RefreshTokenService {
@@ -32,5 +33,8 @@ public RefreshToken verifyExpiration(RefreshToken refreshToken){
     }
     return refreshToken;
 }
+    public Optional<RefreshToken> findByToken(String token){
+        return refreshTokenRepository.findByToken(token);
+    }
 
 }
